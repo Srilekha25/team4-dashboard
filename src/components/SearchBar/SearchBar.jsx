@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { getCodeWarsByUser } from "../../services/post-services";
+import styles from "./SearchBar.module.scss";
+import searchLogo from "../../assets/search.svg";
 
 const SearchBar = () => {
   //Sets input value
@@ -45,8 +47,8 @@ const SearchBar = () => {
 
   return (
     <div>
-      <div>
-        <input
+      <div className={styles.search__container}>
+        <input className={styles.search__container__bar}
           value={inputValue}
           onChange={handleChange}
           type="text"
@@ -54,11 +56,11 @@ const SearchBar = () => {
           placeholder="Enter a username"
           required
         />
-        <select onClick={handleClick}>
+        <select onClick={handleClick} className={styles.search__container__bar}> 
           <option value="01">Codewars</option>
           <option value="02">HackerRank</option>
         </select>
-        <button onClick={() =>handleSubmit()}>Search</button>        
+        <button onClick={() =>handleSubmit()}><img className={styles.card__logo} src={searchLogo} alt="" /></button>        
       </div>
       {books && <h1>{books.id}</h1>}
       {error && <h1>{error.message}</h1>}
