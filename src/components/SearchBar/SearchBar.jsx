@@ -30,13 +30,14 @@ const SearchBar = () => {
   //Sets Search term for API call
   const handleSubmit = () => {
     setSearchTerm(inputValue);
+    setError(false);
+    setBooks([]);
   };
 
   useEffect(()=>{
     getCodeWarsByUser(initialSearchTerm)
             .then((books) => {
-               
-                console.log(books, "hello");
+                console.log("books",books);
                 setBooks(books);
             })
             .catch((error) => setError(error))

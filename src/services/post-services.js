@@ -11,7 +11,8 @@ export const getCodeWarsByUser = async (user) => {
     const data = response.json();
     console.log("data", data);
     return data;
-  }else{
+  }
+  else{
     return;
 }
 };
