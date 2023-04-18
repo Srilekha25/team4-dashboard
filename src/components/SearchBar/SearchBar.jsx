@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { getCodeWarsByUser } from "../../services/post-services";
-import Card from "../Card/Card";
 
 const SearchBar = () => {
     //Sets input value
@@ -59,8 +58,7 @@ const SearchBar = () => {
                 </select>
                 <button onClick={() => handleSubmit()}>Search</button>
             </div>
-
-            {info && <Card info={info} />}
+            {books && <h1>{books.id}</h1>}
             {error && <h1>{error.message}</h1>}
         </div>
     );
